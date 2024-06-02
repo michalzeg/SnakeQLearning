@@ -1,0 +1,31 @@
+version: '3'
+services:
+  snake-qlearning-trainer:
+    build:
+      context: ../
+      dockerfile: ./server/Dockerfile
+    command: ["node", "dist/server/trainer.js"]
+    expose:
+      - "3000"
+    scale: 4
+    restart: always
+    networks:
+      - snake-qlearning
+  snake-qlearning-gateway:
+    build:
+      context: ../
+      dockerfile: ./server/Dockerfile
+    command: ["node", "dist/server/gateway.js"]
+    ports:
+      - "3000:3001"
+    environment:
+      TRAINERS_COUNT: 4
+      TRAINER_NAME: server_snake-qlearning-trainer
+      TRAINER_PORT: 3000
+    depends_on:
+      - snake-qlearning-trainer
+    restart: always
+    networks:
+      - snake-qlearning
+networks:
+  snake-qlearning:

@@ -1,0 +1,30 @@
+.full-width {
+  width: max-content;
+  max-width: max-content;
+}
+
+.obstacle-map{
+
+  .obstacle{
+    color: black;
+    background-color: black;
+  }
+
+  .empty{
+    color: white;
+    background-color: white;
+  }
+
+  .head {
+    background-color: red;
+    color: red;
+  }
+}
+
+.table td {
+  text-align: center;
+}
+
+textarea {
+  height: 500px;
+}
