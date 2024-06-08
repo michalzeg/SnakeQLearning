@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build --source-map",
+    "build:gh": "ng build --configuration production --base-href https://michalzeg.github.io/SnakeQLearning/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
